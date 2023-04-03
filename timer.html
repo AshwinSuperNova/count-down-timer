@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+body{
+	text-align: center;
+	background: #1f1c05;
+font-family: sans-serif;
+font-weight: 100;
+}
+h1{
+color: rgb(255, 255, 250);
+font-weight: 100;
+font-size: 40px;
+margin: 40px 0px 20px;
+}
+#clockdiv{
+	font-family: sans-serif;
+	color: #fff;
+	display: inline-block;
+	font-weight: 100;
+	text-align: center;
+	font-size: 30px;
+}
+#clockdiv > div{
+	padding: 10px;
+	border-radius: 3px;
+	background: #555a5a;
+	display: inline-block;
+}
+#clockdiv div > span{
+	padding: 15px;
+	border-radius: 3px;
+	background: #08221d;
+	display: inline-block;
+}
+smalltext{
+	padding-top: 5px;
+	font-size: 16px;
+}
+</style>
+</head>
+<body>
+<h1>Countdown timer</h1>
+<div id="clockdiv">
+
+<div>
+	<span max="10" id="Time"></span>
+	<div class="smalltext">Seconds</div>
+</div>
+</div>
+
+<p id="demo"></p>
+
+<script>
+let remainingTime = document.querySelector("#Time");
+         	 secondsLeft = 10
+						var Timer;
+function ashwin(callback1,callback2){
+ Timer = setInterval( 
+    () => {
+			callback1(Timer);
+        
+      callback2();
+    }, 
+1000);
+
+  
+}
+
+function stoptimer(Timer){
+	if (secondsLeft <= 0) clearInterval(Timer)
+}
+function settimer(){
+	
+	
+remainingTime.value = secondsLeft
+        remainingTime.textContent = secondsLeft
+        secondsLeft -= 1
+}
+console.log(ashwin(stoptimer,settimer));
+
+</script>
+</body>
+</html>
